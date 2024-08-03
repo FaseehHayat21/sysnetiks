@@ -1,0 +1,54 @@
+.serviceS{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3vh;
+}
+.service-heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.services-showcase{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+}
+
+.ser{
+    /* margin-top: 1vh; */
+    width: 50vh;
+    margin: 15px 16px;
+    overflow: hidden;
+}
+.ser-image:hover{
+    transform: scale(1.1);
+    transition: transform 1s ease-in-out;
+    
+}
+.ser-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.ser-body:hover{
+    border: 0.5px solid black;
+}
+
+
+
+.leFadeInLeft span { animation-name: leFadeInLeft }
+@keyframes leFadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to { opacity: 1 }
+}

@@ -1,0 +1,25 @@
+.showcase-goals{
+    width: 100%;
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.vision{
+    width: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 12px 20px ;
+}
+
+@media (max-width: 1004px) {
+    .showcase-goals{
+        height: fit-content;
+    }
+}

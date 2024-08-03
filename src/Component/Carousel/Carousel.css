@@ -1,0 +1,41 @@
+#carouselExampleDark {
+    margin-top: 15vh; /* Adjust this value according to the height of your navbar */
+  }
+.panigation{
+  color: rgb(255, 166, 0);
+}
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .carousel-caption h1 {
+    animation: fadeInDown 2s;
+    color: black;
+}
+.carousel-caption p {
+    animation: fadeInUp 2s;
+    color: black;
+  }
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

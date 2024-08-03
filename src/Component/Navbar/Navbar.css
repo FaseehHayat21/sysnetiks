@@ -1,0 +1,13 @@
+
+.navbar-background{
+    height: 15vh;
+    background: linear-gradient(to bottom, #096 0%, #060 100%);
+    z-index: 100;
+}
+.nav-link{
+    color: white;
+}
+.nav-link.active {
+    font-weight: bold;
+    color: #007bff; /* Or any color you prefer for the active state */
+  }

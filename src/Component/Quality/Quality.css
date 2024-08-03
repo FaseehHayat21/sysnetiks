@@ -1,0 +1,33 @@
+.quality-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+
+.quality-heading{
+    text-align: center;
+}
+
+.quality-standard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.quality{
+    overflow: hidden;
+}
+.q-img{
+    margin: 10vh 5vh;
+    width: 30vh;
+    height: 30vh;
+}
+.q-img:hover{
+    transform: scale(1.1);
+    transition: transform 0.7s ease-in-out;
+}

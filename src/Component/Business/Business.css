@@ -1,0 +1,108 @@
+.business-page{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.b-image{
+    width: 100vh;
+    height: 90vh;
+}
+.business-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    border: none;
+}
+.accord-text{
+    color: 060;
+}
+.accord-text:hover{
+    color: goldenrod;
+}
+.accordion-item{
+    width: fit-content;
+}
+
+.accordion-button::after {
+    display: none; /* Remove the arrow */
+  }
+  
+  .accordion-number {
+    margin-right: 10px; /* Space between the number and text */
+  }
+  
+  .accordion-collapse {
+    transition: height 0.3s ease; /* Smooth transition */
+  }
+
+
+  .accordion-button::after {
+    display: none; /* Remove the arrow */
+  }
+  
+  .accordion-number {
+    margin-right: 10px; /* Space between the number and text */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid #060; /* Circle border color */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .accordion-number.active {
+    background-color: #060; /* Active background color */
+    color: white;
+  }
+  
+  .accordion-collapse {
+    transition: height 1.6s ease; /* Smooth and slow transition */
+  }
+  
+  .accordion-item,
+.accordion-header,
+.accordion-button {
+  border: none; /* Remove borders */
+  background-color: transparent; /* Make background transparent */
+}
+
+.accordion-button:not(.collapsed) {
+  color: #000; /* Change text color for expanded button */
+  background-color: transparent; /* Make expanded button background transparent */
+  box-shadow: none; /* Remove box-shadow */
+}
+
+.accordion-body {
+  border-top: none; /* Remove the border on the accordion body */
+}
+
+.accordion-body {
+    overflow: hidden; /* Hide overflow to enable smooth height transition */
+    transition: height 0.6s ease, opacity 0.6s ease; /* Smooth and slow transition */
+    height: 0;
+    opacity: 0;
+  }
+  
+  .accordion-body.show {
+    height: auto;
+    opacity: 1;
+    transition: height 0.6s ease, opacity 0.6s ease; /* Smooth and slow transition */
+  }
+  
+  .accordion-collapse.show .accordion-body {
+    height: auto; /* Ensure height is auto when shown */
+    opacity: 1; /* Ensure opacity is 1 when shown */
+    width: 50vh;
+    transition: height 1.6s ease, opacity 5.6s ease; /* Smooth and slow transition */
+  }
+
+  .width-fit{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }

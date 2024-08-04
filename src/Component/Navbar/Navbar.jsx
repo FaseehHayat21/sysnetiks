@@ -30,7 +30,8 @@ export default function Navbar() {
       </ul>
       <form class="d-flex mx-4" role="search">
        
-        <button class="btn btn-danger mx-2" type="submit">SignUp</button>
+        
+       <Link className='nav-link' to="/signup"> <button class="btn btn-danger mx-2" type="submit">SignUp</button></Link>
        <Link className='nav-link' to="/login"> <button class="btn btn-secondary" type="submit">Login</button></Link>
       </form>
     </div>

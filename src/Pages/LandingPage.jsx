@@ -15,7 +15,7 @@ export default function LandingPage() {
   return (
   <>
     
-    <div id='carousel'>
+    <div id='home'>
      <Carousel/>
      </div>
      <div id="showcase">

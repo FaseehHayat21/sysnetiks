@@ -1,18 +1,26 @@
 .business-page{
     display: flex;
     flex-wrap: wrap;
+    justify-content: end;
+    align-items: start;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../../assets/HomeImages/ctdl.png");
+    /* background-position: center; */
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-.b-image{
-    width: 100vh;
-    height: 90vh;
-}
+
 .business-info{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: end;
+    justify-content: end;
+    margin-right: 15vh;
     flex: 1;
     border: none;
+    height: 30vh;
+    margin-bottom: 7vh;
 }
 .accord-text{
     color: 060;
@@ -33,7 +41,7 @@
   }
   
   .accordion-collapse {
-    transition: height 0.3s ease; /* Smooth transition */
+    transition: height 2.3s ease; /* Smooth transition */
   }
 
 
@@ -56,10 +64,12 @@
   .accordion-number.active {
     background-color: #060; /* Active background color */
     color: white;
+    
   }
   
   .accordion-collapse {
-    transition: height 1.6s ease; /* Smooth and slow transition */
+    transition: height 2.6s ease; /* Smooth and slow transition */
+    
   }
   
   .accordion-item,
@@ -81,7 +91,7 @@
 
 .accordion-body {
     overflow: hidden; /* Hide overflow to enable smooth height transition */
-    transition: height 0.6s ease, opacity 0.6s ease; /* Smooth and slow transition */
+    transition: height 5.6s ease, opacity 0.6s ease; /* Smooth and slow transition */
     height: 0;
     opacity: 0;
   }
@@ -89,14 +99,14 @@
   .accordion-body.show {
     height: auto;
     opacity: 1;
-    transition: height 0.6s ease, opacity 0.6s ease; /* Smooth and slow transition */
+    transition: height 4.6s ease, opacity 0.6s ease; /* Smooth and slow transition */
   }
   
   .accordion-collapse.show .accordion-body {
     height: auto; /* Ensure height is auto when shown */
     opacity: 1; /* Ensure opacity is 1 when shown */
     width: 50vh;
-    transition: height 1.6s ease, opacity 5.6s ease; /* Smooth and slow transition */
+    transition: height 2.6s ease; /* Smooth and slow transition */
   }
 
   .width-fit{
@@ -106,3 +116,5 @@
     display: block;
     margin: 0 auto;
   }
+
+  

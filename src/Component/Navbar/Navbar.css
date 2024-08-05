@@ -1,7 +1,8 @@
 
 .navbar-background{
     height: 15vh;
-    background: linear-gradient(to bottom, #096 0%, #060 100%);
+    background: rgb(49,104,166);
+background: linear-gradient(180deg, rgba(49,104,166,1) 0%, rgba(18,56,101,1) 30%, rgba(18,56,101,1) 70%, rgba(49,104,166,1) 100%);
     z-index: 100;
 }
 .nav-link{
@@ -10,4 +11,10 @@
 .nav-link.active {
     font-weight: bold;
     color: #007bff; /* Or any color you prefer for the active state */
+  }
+  .nav-heading{
+    color: #ffffff;
+    font-family: "kallisto", sans-serif;
+font-weight: 300;
+font-style: normal;
   }

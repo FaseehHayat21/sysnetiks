@@ -6,7 +6,9 @@
     margin-top: 10vh;
     height: 70vh;
    
-background: linear-gradient(90deg, rgba(33,140,21,1) 0%, rgba(59,189,15,1) 71%);
+    background: rgb(49,104,166);
+    background: rgb(49,104,166);
+background: linear-gradient(0deg, rgba(49,104,166,1) 0%, rgba(49,104,166,1) 100%);
 }
 
 .about{

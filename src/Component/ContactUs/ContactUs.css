@@ -65,7 +65,7 @@
 .content-c .right-side .topic-text {
   font-size: 23px;
   font-weight: 600;
-  color: #060;
+  color: #0f2c4d;
 }
 .right-side .input-box {
   height: 55px;
@@ -152,7 +152,7 @@
   border: none;
   padding: 8px 10px;
   border-radius: 6px;
-  background: #20933d;
+  background: #0f2c4d;
   cursor: pointer;
   transition: all 0.3s ease;
 }

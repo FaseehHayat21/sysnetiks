@@ -7,7 +7,8 @@ export default function Navbar() {
    <nav class="navbar navbar-expand-lg navbar-background fixed-top">
     <div class="container navbar-e">
     <div>
-    <img src=",..." alt="logo" />
+    {/* <img src=",..." alt="logo" /> */}
+    <h2 className='nav-heading'>Sysnatiks</h2>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Product.css"
 import p1 from "../../assets/img24.jpg"
+import p2 from "../../assets/Product/ACAST_Avcs/SDR.jpg"
 export default function Product() {
     const generate = ()=>  {
         alert("product")
@@ -14,10 +15,10 @@ export default function Product() {
         <div className="prod">
             <div className="products" onClick={generate}>
                     <div class="product-card">
-                    <img className='pimage' src={p1} alt="" />
+                    <img className='pimage' src={p2} alt="" />
                 
                     <div class="textBox">
-                        <h3 className='head'>Product  Name</h3>
+                        <h3 className='head'>Software Defined Radios</h3>
                     </div>
                     </div>
             </div>

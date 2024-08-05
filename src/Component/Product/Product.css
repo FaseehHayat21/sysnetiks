@@ -60,12 +60,14 @@
   
   .textBox > head {
     font-size: 12px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
   }
   
   .product-card:hover > .textBox {
+    text-align: center;
     opacity: 1;
-    color: black ;
+    color: rgb(255, 255, 255) ;
   }
   
   .product-card:hover > .pimage {

@@ -1,120 +1,507 @@
-.business-page{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: end;
-    align-items: start;
+/* Business.css */
+
+/* Main Container */
+.business-page {
+    position: relative;
     width: 100%;
-    height: 100vh;
-    background-image: url("../../assets/HomeImages/ctdl.png");
-    /* background-position: center; */
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-
-.business-info{
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8edf5 100%);
     display: flex;
-    align-items: end;
-    justify-content: end;
-    margin-right: 15vh;
-    flex: 1;
-    border: none;
-    height: 30vh;
-    margin-bottom: 7vh;
-}
-.accord-text{
-    color: 060;
-}
-.accord-text:hover{
-    color: goldenrod;
-}
-.accordion-item{
-    width: fit-content;
+    align-items: center;
+    padding: 100px 0;
+    overflow: hidden;
 }
 
-.accordion-button::after {
-    display: none; /* Remove the arrow */
-  }
-  
-  .accordion-number {
-    margin-right: 10px; /* Space between the number and text */
-  }
-  
-  .accordion-collapse {
-    transition: height 2.3s ease; /* Smooth transition */
-  }
+/* Background Image Overlay */
+.business-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url("../../assets/HomeImages/ctdl.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.08;
+    pointer-events: none;
+}
 
+.business-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 0% 50%, rgba(49, 104, 166, 0.05), transparent);
+    pointer-events: none;
+}
 
-  .accordion-button::after {
-    display: none; /* Remove the arrow */
-  }
-  
-  .accordion-number {
-    margin-right: 10px; /* Space between the number and text */
-    width: 30px;
-    height: 30px;
+/* Container */
+.business-container {
+    max-width: 1300px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Section */
+.business-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.business-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #3168a6, #123865);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.business-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #123865;
+    margin-bottom: 20px;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+.highlight {
+    color: #3168a6;
+    position: relative;
+}
+
+.business-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3168a6, #64b5f6);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+}
+
+.business-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* Content Wrapper */
+.business-content-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* Accordion Wrapper */
+.accordion-wrapper {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+/* Custom Accordion */
+.accordion-item-custom {
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.accordion-item-custom:hover {
+    box-shadow: 0 10px 30px rgba(49, 104, 166, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Accordion Header */
+.accordion-header-custom {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.accordion-header-custom.active {
+    background: linear-gradient(135deg, #f8faff, white);
+}
+
+/* Accordion Number */
+.accordion-number-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.accordion-number {
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 2px solid #060; /* Circle border color */
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .accordion-number.active {
-    background-color: #060; /* Active background color */
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: #f0f4f9;
+    color: #123865;
+    transition: all 0.3s ease;
+}
+
+.accordion-number.active {
+    background: linear-gradient(135deg, #3168a6, #123865);
     color: white;
-    
-  }
-  
-  .accordion-collapse {
-    transition: height 2.6s ease; /* Smooth and slow transition */
-    
-  }
-  
-  .accordion-item,
-.accordion-header,
-.accordion-button {
-  border: none; /* Remove borders */
-  background-color: transparent; /* Make background transparent */
+    box-shadow: 0 5px 15px rgba(49, 104, 166, 0.3);
 }
 
-.accordion-button:not(.collapsed) {
-  color: #000; /* Change text color for expanded button */
-  background-color: transparent; /* Make expanded button background transparent */
-  box-shadow: none; /* Remove box-shadow */
-}
-
-.accordion-body {
-  border-top: none; /* Remove the border on the accordion body */
-}
-
-.accordion-body {
-    overflow: hidden; /* Hide overflow to enable smooth height transition */
-    transition: height 5.6s ease, opacity 0.6s ease; /* Smooth and slow transition */
+.number-line {
+    width: 2px;
     height: 0;
-    opacity: 0;
-  }
-  
-  .accordion-body.show {
-    height: auto;
-    opacity: 1;
-    transition: height 4.6s ease, opacity 0.6s ease; /* Smooth and slow transition */
-  }
-  
-  .accordion-collapse.show .accordion-body {
-    height: auto; /* Ensure height is auto when shown */
-    opacity: 1; /* Ensure opacity is 1 when shown */
-    width: 50vh;
-    transition: height 2.6s ease; /* Smooth and slow transition */
-  }
+    background: linear-gradient(180deg, #3168a6, transparent);
+    transition: height 0.3s ease;
+}
 
-  .width-fit{
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
+.accordion-item-custom:last-child .number-line {
+    display: none;
+}
 
-  
+.accordion-header-custom.active + .number-line {
+    height: 40px;
+}
+
+/* Accordion Title */
+.accordion-title-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #123865;
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.accordion-header-custom:hover .accordion-title {
+    color: #3168a6;
+}
+
+/* Accordion Icon */
+.accordion-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accordion-arrow {
+    transition: transform 0.3s ease;
+    color: #3168a6;
+}
+
+.accordion-arrow.rotated {
+    transform: rotate(180deg);
+}
+
+/* Accordion Content */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content.show {
+    max-height: 500px;
+}
+
+.accordion-body-custom {
+    padding: 0 25px 25px 95px;
+}
+
+.accordion-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 20px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.accordion-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.accordion-details li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.check-icon {
+    color: #3168a6;
+    flex-shrink: 0;
+}
+
+/* Stats Wrapper */
+.business-stats-wrapper {
+    flex: 1;
+    min-width: 250px;
+}
+
+.stats-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #3168a6;
+    margin-bottom: 5px;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 500;
+}
+
+/* CTA Card */
+.cta-card {
+    background: linear-gradient(135deg, #3168a6, #123865);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+
+.cta-card h5 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+.cta-button {
+    background: white;
+    color: #123865;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .business-title {
+        font-size: 2.3rem;
+    }
+    
+    .business-content-wrapper {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 991px) {
+    .business-page {
+        padding: 70px 0;
+    }
+    
+    .business-content-wrapper {
+        flex-direction: column;
+    }
+    
+    .accordion-body-custom {
+        padding: 0 20px 20px 85px;
+    }
+    
+    .stats-card {
+        max-width: 400px;
+        margin: 0 auto 30px;
+    }
+    
+    .cta-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .business-title {
+        font-size: 1.8rem;
+    }
+    
+    .business-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .accordion-header-custom {
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    
+    .accordion-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .accordion-title {
+        font-size: 0.95rem;
+    }
+    
+    .accordion-body-custom {
+        padding: 0 20px 20px 75px;
+    }
+    
+    .accordion-description {
+        font-size: 0.85rem;
+    }
+    
+    .accordion-details li {
+        font-size: 0.8rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    .cta-card h5 {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 10px 24px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .business-page {
+        padding: 50px 0;
+    }
+    
+    .business-title {
+        font-size: 1.5rem;
+    }
+    
+    .business-badge {
+        font-size: 0.75rem;
+        padding: 4px 14px;
+    }
+    
+    .business-divider {
+        width: 60px;
+    }
+    
+    .accordion-header-custom {
+        padding: 12px 15px;
+        gap: 12px;
+    }
+    
+    .accordion-number {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .accordion-title {
+        font-size: 0.85rem;
+    }
+    
+    .accordion-body-custom {
+        padding: 0 15px 15px 62px;
+    }
+    
+    .stats-card {
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .stat-number {
+        font-size: 1.3rem;
+    }
+    
+    .cta-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 380px) {
+    .business-title {
+        font-size: 1.3rem;
+    }
+    
+    .accordion-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .accordion-body-custom {
+        padding: 0 12px 12px 54px;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .accordion-content,
+    .accordion-arrow,
+    .accordion-item-custom {
+        transition: none;
+    }
+}

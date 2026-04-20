@@ -1,44 +1,459 @@
+/* Carousel.css */
+
+/* Base Carousel Container */
 #carouselExampleDark {
-    margin-top: 15vh; /* Adjust this value according to the height of your navbar */
-  }
-.panigation{
-  color: rgb(255, 166, 0);
+  margin-top: 85px;
+  position: relative;
+  overflow: hidden;
 }
-  .carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    text-align: left;
+
+/* Custom Carousel Styles */
+.custom-carousel {
+  position: relative;
+  background: #000;
+}
+
+/* Image Styles */
+.carousel-image {
+  height: calc(100vh - 85px);
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.85);
+  transition: transform 6s ease;
+}
+
+.carousel-item.active .carousel-image {
+  transform: scale(1.05);
+}
+
+/* Image Overlay */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+/* Custom Caption */
+.custom-caption {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  text-align: left;
+  z-index: 2;
+  width: 50%;
+  padding: 0;
+  background: transparent;
+}
+
+.caption-content {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+/* Heading Styles */
+.c1-heading {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Title Underline */
+.title-underline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #64b5f6, #ffffff);
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+  opacity: 0;
+  animation: expandWidth 0.6s ease 0.3s forwards;
+}
+
+/* Subtitle Styles */
+.c1-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.2s forwards;
+}
+
+/* Explore Button */
+.explore-btn {
+  background: linear-gradient(135deg, #3168a6, #123865);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.4s forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.explore-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.explore-btn:hover::before {
+  left: 100%;
+}
+
+.explore-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(49, 104, 166, 0.4);
+  background: linear-gradient(135deg, #123865, #3168a6);
+}
+
+/* Custom Indicators */
+.custom-indicators {
+  bottom: 30px;
+  z-index: 3;
+}
+
+.custom-indicators button {
+  width: 40px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-indicators button.active {
+  background: #ffffff;
+  width: 60px;
+}
+
+.custom-indicators button .indicator-dot {
+  display: none;
+}
+
+.custom-indicators button:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scaleY(1.2);
+}
+
+/* Custom Controls */
+.custom-control {
+  width: 5%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.custom-carousel:hover .custom-control {
+  opacity: 1;
+}
+
+.custom-control-icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  border-radius: 50%;
+  background-size: 60%;
+  transition: all 0.3s ease;
+}
+
+.custom-control-icon:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: 80px;
+  }
+}
+
+/* Zoom animation for images */
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.carousel-item.active .carousel-image {
+  animation: zoomIn 6s ease forwards;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
   .c1-heading {
-    animation: fadeInDown 2s;
-    color: black;
-    font-family: "kallisto", sans-serif;
-font-weight: 700;
-font-style: normal;
+    font-size: 3.5rem;
+  }
+  
+  .c1-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .custom-caption {
+    width: 55%;
+  }
 }
-.carousel-caption p {
-    animation: fadeInUp 2s;
-    color: black;
+
+@media (max-width: 991px) {
+  #carouselExampleDark {
+    margin-top: 70px;
   }
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  
+  .carousel-image {
+    height: calc(100vh - 70px);
   }
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  
+  .c1-heading {
+    font-size: 2.8rem;
   }
+  
+  .c1-subtitle {
+    font-size: 1rem;
+    max-width: 95%;
+  }
+  
+  .custom-caption {
+    width: 65%;
+    left: 8%;
+  }
+  
+  .explore-btn {
+    padding: 10px 28px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-caption {
+    width: 80%;
+    left: 5%;
+  }
+  
+  .c1-heading {
+    font-size: 2.2rem;
+  }
+  
+  .c1-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .title-underline {
+    width: 60px;
+    height: 3px;
+    margin-bottom: 1rem;
+  }
+  
+  .explore-btn {
+    padding: 8px 24px;
+    font-size: 0.85rem;
+  }
+  
+  .custom-indicators {
+    bottom: 20px;
+  }
+  
+  .custom-indicators button {
+    width: 30px;
+  }
+  
+  .custom-indicators button.active {
+    width: 45px;
+  }
+  
+  .custom-control {
+    opacity: 0.5;
+  }
+  
+  .custom-control-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 576px) {
+  #carouselExampleDark {
+    margin-top: 60px;
+  }
+  
+  .carousel-image {
+    height: calc(100vh - 60px);
+    object-position: 70% center;
+  }
+  
+  .custom-caption {
+    width: 90%;
+    left: 5%;
+    top: 55%;
+  }
+  
+  .c1-heading {
+    font-size: 1.8rem;
+  }
+  
+  .c1-subtitle {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .title-underline {
+    width: 50px;
+    height: 2px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .explore-btn {
+    padding: 6px 20px;
+    font-size: 0.75rem;
+  }
+  
+  .custom-indicators {
+    bottom: 15px;
+  }
+  
+  .custom-indicators button {
+    width: 25px;
+    height: 3px;
+  }
+  
+  .custom-indicators button.active {
+    width: 35px;
+  }
+  
+  .custom-control-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 380px) {
+  .c1-heading {
+    font-size: 1.5rem;
+  }
+  
+  .c1-subtitle {
+    font-size: 0.7rem;
+  }
+  
+  .explore-btn {
+    padding: 5px 16px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Landscape Mode for Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .carousel-image {
+    height: 100vh;
+  }
+  
+  .custom-caption {
+    top: 50%;
+  }
+  
+  .c1-heading {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .c1-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .explore-btn {
+    padding: 5px 18px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Smooth transitions for carousel items */
+.carousel-item {
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.carousel-item.loading .carousel-image {
+  animation: pulse 1s ease infinite;
+}

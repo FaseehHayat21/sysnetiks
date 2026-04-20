@@ -1,63 +1,87 @@
-import React from 'react'
-import c1 from "../../assets/HomeImages/c1.jpg"
-import c2 from "../../assets/HomeImages/c2.jpg"
-import c3 from "../../assets/HomeImages/c3.jpg"
-import c4 from "../../assets/HomeImages/c4.jpg"
-import "./Carousel.css"
-export default function Carousel() {
-  return (
-   <>
-  
+import React, { useEffect, useState } from 'react';
+import c1 from "../../assets/HomeImages/c1.jpg";
+import c2 from "../../assets/HomeImages/c2.jpg";
+import c3 from "../../assets/HomeImages/c3.jpg";
+import c4 from "../../assets/HomeImages/c4.jpg";
+import "./Carousel.css";
 
-<div id="carouselExampleDark" class="carousel carousel-dark slide"  data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button panigation" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 4"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 5"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="1200">
-    <img src={c1} class="d-block w-100 h-screen img-fluid" alt="..."/>
-      <div class="carousel-caption">
-          <h1 className='c1-heading'>Sysnatiks</h1>
-          <p>Crafting Electronic Excellence through Systematic and Naticks Integration</p>
+export default function Carousel() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const carouselElement = document.getElementById('carouselExampleDark');
+    const handleSlide = (event) => {
+      setActiveIndex(event.to);
+    };
+    
+    if (carouselElement) {
+      carouselElement.addEventListener('slid.bs.carousel', handleSlide);
+      return () => {
+        carouselElement.removeEventListener('slid.bs.carousel', handleSlide);
+      };
+    }
+  }, []);
+
+  const carouselItems = [
+    { id: 0, img: c1, title: "Sysnatiks", subtitle: "Crafting Electronic Excellence through Systematic and Naticks Integration" },
+    { id: 1, img: c2, title: "Sysnatiks", subtitle: "Crafting Electronic Excellence through Systematic and Naticks Integration" },
+    { id: 2, img: c3, title: "Sysnatiks", subtitle: "Crafting Electronic Excellence through Systematic and Naticks Integration" },
+    { id: 3, img: c4, title: "Sysnatiks", subtitle: "Crafting Electronic Excellence through Systematic and Naticks Integration" }
+  ];
+
+  return (
+    <>
+      <div id="carouselExampleDark" className="carousel carousel-dark slide custom-carousel" data-bs-ride="carousel">
+        <div className="carousel-indicators custom-indicators">
+          {carouselItems.map((item, index) => (
+            <button
+              key={index}
+              type="button"
+              data-bs-target="#carouselExampleDark"
+              data-bs-slide-to={index}
+              className={index === 0 ? "active" : ""}
+              aria-current={index === 0 ? "true" : "false"}
+              aria-label={`Slide ${index + 1}`}
+            >
+              <span className="indicator-dot"></span>
+            </button>
+          ))}
         </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="1200">
-    <img src={c2} class="d-block w-100 h-screen img-fluid" alt="..."/>
-      <div class="carousel-caption">
-      <h1 className='c1-heading'>Sysnatiks</h1>
-      <p>Crafting Electronic Excellence through Systematic and Naticks Integration</p>
+        
+        <div className="carousel-inner">
+          {carouselItems.map((item, index) => (
+            <div 
+              key={index}
+              className={`carousel-item ${index === 0 ? "active" : ""}`}
+              data-bs-interval="3000"
+            >
+              <div className="image-overlay"></div>
+              <img 
+                src={item.img} 
+                className="d-block w-100 carousel-image" 
+                alt={`Slide ${index + 1}`}
+              />
+              <div className="carousel-caption custom-caption">
+                <div className="caption-content">
+                  <h1 className="c1-heading">{item.title}</h1>
+                  <div className="title-underline"></div>
+                  <p className="c1-subtitle">{item.subtitle}</p>
+                  <button className="explore-btn">Explore More</button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="1200"> 
-    <img src={c3} class="d-block w-100 h-screen img-fluid" alt="..."/>
-      <div class="carousel-caption">
-      <h1 className='c1-heading'>Sysnatiks</h1>
-      <p>Crafting Electronic Excellence through Systematic and Naticks Integration</p>
-        </div>        
-    </div>
-    <div class="carousel-item" data-bs-interval="1200">
-    <img src={c4} class="d-block w-100 h-screen img-fluid" alt="..."/>
-      <div class="carousel-caption">
-      <h1 className='c1-heading'>Sysnatiks</h1>
-      <p>Crafting Electronic Excellence through Systematic and Naticks Integration</p>
-        </div>        
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
- 
-   </>
-  )
+        
+        <button className="carousel-control-prev custom-control" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon custom-control-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button className="carousel-control-next custom-control" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span className="carousel-control-next-icon custom-control-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
+        </button>
+      </div>
+    </>
+  );
 }

@@ -10,6 +10,7 @@ import About from '../Component/About/About'
 import ContactUs from '../Component/ContactUs/ContactUs'
 import Quality from '../Component/Quality/Quality'
 import SignUp from '../Component/SignUp/SignUp'
+import Footer from '../Component/Footer/Footer'
 
 export default function LandingPage() {
   return (
@@ -42,6 +43,9 @@ export default function LandingPage() {
      <div id="contactus">
      <ContactUs/>
      </div>
+      <div id="signup">
+      <Footer/>
+      </div>
   </>
   )
 }
